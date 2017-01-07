@@ -7,6 +7,7 @@ public class test {
     public static void main(String[] args) {
         foo test = new foo();
         test.saySomething();
-
+        test.color = "red";
+        test.sayYourColor();
     }
 }
