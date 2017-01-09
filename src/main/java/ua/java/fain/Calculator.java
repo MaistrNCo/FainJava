@@ -1,7 +1,8 @@
 package ua.java.fain;
 import javax.swing.*;
-import java.awt.GridLayout;
-import java.awt.BorderLayout;
+import java.awt.*;
+import java.text.Format;
+
 /**
  * Created by Maistrenko on 09.01.2017.
  */
@@ -9,6 +10,8 @@ public class Calculator {
     //Declaration of all calc components
     JPanel windowContent;
     JTextField displayField;
+    JFormattedTextField displayFieldFormated;
+
     JButton button0;
     JButton button1;
     JButton button2;
@@ -21,7 +24,14 @@ public class Calculator {
     JButton button9;
     JButton buttonPoint;
     JButton buttonEqual;
+    JButton buttonPls;
+    JButton buttonMin;
+    JButton buttonDiv;
+    JButton buttonMult;
+
+
     JPanel p1;
+    JPanel p2;
 
     Calculator(){
       //new panel (global)
@@ -30,10 +40,12 @@ public class Calculator {
       //set layout manager ti this panel
         BorderLayout bl = new BorderLayout();
         windowContent.setLayout(bl);
-
       //create the display field & place it in the north of the window
         displayField = new JTextField(30);
-        windowContent.add("North",displayField);
+        Format rJstf =
+        displayFieldFormated = new JFormattedTextField();
+        //windowContent.add("North",displayField);
+        windowContent.add("North",displayFieldFormated);
 
       //create buttons
         button0 = new JButton("0");
@@ -48,6 +60,12 @@ public class Calculator {
         button9 = new JButton("9");
         buttonPoint = new JButton(".");
         buttonEqual = new JButton("=");
+
+        buttonPls = new JButton("+");
+        buttonMin = new JButton("-");
+        buttonDiv = new JButton("/");
+        buttonMult = new JButton("*");
+
 
       // create penel with the gridLayout that will contain buttons
         p1 = new JPanel(new GridLayout(4,3,2,2));
@@ -66,6 +84,15 @@ public class Calculator {
 
       //add the pael p1 to center area of the window
         windowContent.add("Center",p1);
+
+        p2 = new JPanel(new GridLayout(4,1,2,2));
+        p2.add(buttonPls);
+        p2.add(buttonMin);
+        p2.add(buttonDiv);
+        p2.add(buttonMult);
+
+        windowContent.add("East",p2);
+
       // create the frame & set its content
         JFrame frame = new JFrame("Calculator");
         frame.setContentPane(windowContent);
