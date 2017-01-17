@@ -40,19 +40,27 @@ public class Calculator {
 
         windowContent.add("North",displayFieldFormated);
 
-      //create buttons
+        CalculatorEngine calcEngine = new CalculatorEngine(this);
+        //create buttons
         buttons = new JButton[10];
         for (int index = 0; index < buttons.length; index++) {
             buttons[index] = new JButton(Integer.toString(index));
+            buttons[index].addActionListener(calcEngine);
         }
 
         buttonPoint = new JButton(".");
+        buttonPoint.addActionListener(calcEngine);
         buttonEqual = new JButton("=");
-
+        buttonEqual.addActionListener(calcEngine);
         buttonPls = new JButton("+");
+        buttonPls.addActionListener(calcEngine);
         buttonMin = new JButton("-");
+        buttonMin.addActionListener(calcEngine);
         buttonDiv = new JButton("/");
+        buttonDiv.addActionListener(calcEngine);
         buttonMult = new JButton("*");
+        buttonMult.addActionListener(calcEngine);
+
 
 
       // create penel with the gridLayout that will contain buttons
